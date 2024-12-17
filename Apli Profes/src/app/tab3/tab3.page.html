@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="end">
+      <ion-button (click)="mostrarMenu()">
+        <ion-icon slot="end" name="menu-outline" color="dark" size="large"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Asistencia</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Asistencia</ion-card-title>
+        <ion-card-subtitle>Datos de los alumnos</ion-card-subtitle>
+      </ion-card-header>
+    </ion-card>
+
+      <ion-card *ngFor="let alumno of alumnos">
+        <ion-card-header>
+          <ion-card-title>{{ alumno.nombre }}</ion-card-title>
+          <ion-card-subtitle>Inscrito</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <p><strong>Correo:</strong> {{ alumno.correo }}</p>
+          <p><strong>Asistencia:</strong> {{ alumno.asistencia ? 'Presente' : 'Ausente' }}</p>
+        </ion-card-content>
+      </ion-card>
+
+</ion-content>

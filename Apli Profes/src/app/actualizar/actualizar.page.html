@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="volver()">
+        Regresar
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Actualizar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  
+  <form style="margin-top: 40%;">
+    <ion-item>
+      <ion-input type="text" name="nombre" label="Nombre Profesor:" 
+        labelPlacement="floating" [(ngModel)]="profesor.nombre">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="text" name="desc" label="Descripción:" 
+        labelPlacement="floating" [(ngModel)]="profesor.apellido">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="text" name="desc" label="Descripción:" 
+        labelPlacement="floating" [(ngModel)]="profesor.materia">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="text" name="desc" label="Descripción:" 
+        labelPlacement="floating" [(ngModel)]="profesor.correo">
+      </ion-input>
+    </ion-item>
+
+
+    <div style="text-align: center; margin-top: 30px;">
+      <ion-button (click)="updateProfesor()" shape="round" color="success">
+        Actualizar
+      </ion-button>
+      
+    </div>
+
+  </form>
+</ion-content>

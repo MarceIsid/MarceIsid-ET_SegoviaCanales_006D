@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="end">
+      <ion-button (click)="mostrarMenu()">
+        <ion-icon slot="end" name="menu-outline" color="dark" size="large"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true" color="light">
+  <div>
+  <ion-card style="display: flex; justify-content: center; align-items: center; border: none;">
+
+      
+    <ion-avatar >
+      <img  src="./assets/images/img.jpg" />
+    </ion-avatar>
+  </ion-card>
+  </div>
+    <ion-item>
+      <ion-label>Nombre</ion-label>
+      <ion-text>{{ user.name }}</ion-text>
+    </ion-item>
+
+    <ion-item>
+        <ion-label>Correo Electrónico</ion-label>
+        <ion-text>{{ user.email }}</ion-text>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Fecha de Registro</ion-label>
+        <ion-text>{{ user.registrationDate }}</ion-text>
+      </ion-item>
+      <ion-item href="/inicio">
+      <ion-label>Cerrar Sesión</ion-label>
+    </ion-item> 
+</ion-content>

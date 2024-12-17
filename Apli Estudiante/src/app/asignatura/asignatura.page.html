@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-title>Asignaturas inscritas</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="volver()">
+        Regresar
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let asignatura of asignaturas">
+      <ion-label>
+        <h3 >Id Asignatura: {{asignatura.id}}</h3>
+        <h2> Nombre: {{asignatura.nombre}}</h2>
+        <h3>Descripción: {{asignatura.description}}</h3>
+        <h3>Profesor: {{asignatura.profesor}}</h3>
+      </ion-label>
+      <ion-button [routerLink]="['/actualizar', asignatura.id]" color="warning">
+        Actualizar
+      </ion-button>
+      <ion-button [routerLink]="['/eliminar', asignatura.id]" color="danger">
+        Eliminar
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>

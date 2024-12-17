@@ -1,0 +1,74 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="tertiary">
+    <ion-title>Inicio de Sesión</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="login-container">
+    <form [formGroup]="loginForm" class="login-form">
+      <ion-item>
+        <ion-input type="email" placeholder="Ingrese correo" label="Correo:" labelPlacement="floating" formControlName="correo">
+        </ion-input>
+      </ion-item>
+
+      <div id="alerta" *ngIf="loginForm.get('correo')?.invalid && (loginForm.get('correo')?.dirty || 
+                  loginForm.get('correo')?.touched)">
+        <div id="alerta" *ngIf="loginForm.get('correo')?.hasError('required')">
+          *correo es obligatorio
+        </div>
+        <div id="alerta" *ngIf="loginForm.get('correo')?.hasError('email')">
+          *ingrese un correo válido
+        </div>
+      </div>
+
+      <ion-item>
+        <ion-input [type]="passwordVisible ? 'text' : 'password'" 
+                   placeholder="Ingrese contraseña" 
+                   label="Contraseña:" 
+                   labelPlacement="floating" 
+                   formControlName="contraseña">
+        </ion-input>
+        <ion-buttons slot="end">
+          <ion-button fill="clear" (click)="togglePasswordVisibility()">
+            <ion-icon [name]="passwordVisible ? 'eye-off' : 'eye'"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+
+      <div id="alerta" *ngIf="loginForm.get('contraseña')?.invalid && (loginForm.get('contraseña')?.dirty || 
+                  loginForm.get('contraseña')?.touched)">
+        <div id="alerta" *ngIf="loginForm.get('contraseña')?.hasError('required')">
+          *contraseña es obligatoria
+        </div>
+        <div id="alerta" *ngIf="loginForm.get('contraseña')?.hasError('minlength')">
+          *contraseña debe tener mínimo 8 caracteres
+        </div>
+      </div>
+
+      <ion-button (click)="login()" [disabled]="!loginForm.valid" shape="round" color="primary" expand="block" class="animated-button">
+        Login
+      </ion-button>
+      <ion-button (click)="Registrar()" fill="clear" shape="round" expand="block" class="animated-button">
+        Registrarse
+      </ion-button>
+    </form>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="tertiary">
+    <ion-title id="letra">ProProfes School</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear">
+        <ion-icon name="logo-instagram"></ion-icon>
+      </ion-button>
+      <ion-button fill="clear">
+        <ion-icon name="logo-facebook"></ion-icon>
+      </ion-button>
+      <ion-button fill="clear">
+        <ion-icon name="logo-twitter"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

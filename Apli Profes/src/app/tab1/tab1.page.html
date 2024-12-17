@@ -1,0 +1,82 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="tertiary">
+    <ion-title>Inicio</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="mostrarMenu()">
+        <ion-icon slot="icon-only" name="menu-outline" color="light" size="large"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="welcome-container">
+    <ion-card class="animated-card">
+      <ion-card-header>
+        <ion-card-title>Bienvenido</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+  </div>
+
+  <swiper-container
+    #swiper
+    (afterinit)="swiperReady()"
+    (slidechange)="swiperSlideChanged($event)"
+    class="swiper-container"
+  >
+    <swiper-slide *ngFor="let item of segmentList" loop="true">
+      <ion-card class="swiper-card">
+        <div class="image-container">
+          <img [src]="item" />
+        </div>
+      </ion-card>
+    </swiper-slide>
+  </swiper-container>
+
+  <ion-card class="animated-card">
+    <ion-card-header>
+      <ion-card-subtitle class="subtitle">La manera más práctica de manejar tus clases</ion-card-subtitle>
+      <ion-card-title>Class CheckIn</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Queridos docentes, con esta nueva aplicación hemos creado un sistema de control de asistencia de manera rápida y sencilla, donde podrás gestionar tus clases de manera eficiente y monitorizar la asistencia de tus estudiantes, tus clases y horarios.
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="animated-card action-card">
+    <ion-card-header>
+      <ion-card-title style="color: black;">Alumnos Inscritos</ion-card-title>
+    </ion-card-header>
+    <ion-button expand="block" (click)="asistencia()" color="tertiary" shape="round" href="/tabs/tab3" class="action-button">
+      Asistencia
+    </ion-button>
+  </ion-card>
+
+  <ion-card class="animated-card action-card">
+    <ion-card-header>
+      <ion-card-title style="color: black;">Revisa tu Información</ion-card-title>
+    </ion-card-header>
+    <ion-button expand="block" (click)="ajustes()" color="tertiary" shape="round" href="/detalle-profesor" class="action-button">
+      Ajustes
+    </ion-button>
+  </ion-card>
+
+  <app-explore-container name="Tab 1 page"></app-explore-container>
+</ion-content>
+
+<ion-footer [translucent]="true">
+  <ion-toolbar color="tertiary">
+    <ion-title>ProProfes School</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear">
+        <ion-icon name="logo-instagram"></ion-icon>
+      </ion-button>
+      <ion-button fill="clear">
+        <ion-icon name="logo-facebook"></ion-icon>
+      </ion-button>
+      <ion-button fill="clear">
+        <ion-icon name="logo-twitter"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

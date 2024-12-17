@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-title>Agregar Asignatura</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="volver()">
+        Regresar
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="onSubmit()">
+    
+    <!-- Nombre de la asignatura -->
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input [(ngModel)]="nuevaAsignatura.nombre" name="nombre" required></ion-input>
+    </ion-item>
+
+    <!-- Descripción de la asignatura -->
+    <ion-item>
+      <ion-label position="floating">Descripción</ion-label>
+      <ion-input [(ngModel)]="nuevaAsignatura.description" name="description" required></ion-input>
+    </ion-item>
+
+    <!-- URL de la imagen -->
+    <ion-item>
+      <ion-label position="floating">Imagen URL</ion-label>
+      <ion-input [(ngModel)]="nuevaAsignatura.image" name="image" required></ion-input>
+    </ion-item>
+
+    <!-- Nombre del profesor -->
+    <ion-item>
+      <ion-label position="floating">Profesor</ion-label>
+      <ion-input [(ngModel)]="nuevaAsignatura.profesor" name="profesor" required></ion-input>
+    </ion-item>
+
+    <!-- Fecha de la asignatura -->
+    <ion-item>
+      <ion-label position="floating">Fecha</ion-label>
+      <ion-input [(ngModel)]="nuevaAsignatura.date" name="date" required type="date"></ion-input>
+    </ion-item>
+
+    <!-- Botón para agregar la asignatura -->
+    <ion-button expand="full" type="submit" [disabled]="!nuevaAsignatura.nombre || !nuevaAsignatura.description || !nuevaAsignatura.image || !nuevaAsignatura.profesor || !nuevaAsignatura.date">
+      Agregar Asignatura
+    </ion-button>
+  </form>
+</ion-content>

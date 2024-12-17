@@ -1,0 +1,43 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 20px;
+  }
+
+  .login-form {
+    width: 100%;
+    max-width: 400px;
+    background: f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  #alerta {
+    color: #e74c3c;
+    font-size: 14px;
+    margin: 8px 0;
+  }
+
+  .animated-button {
+    margin-top: 16px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .animated-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  ion-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+
+  #letra {
+    font-size: 16px;
+    font-weight: 600;
+  }

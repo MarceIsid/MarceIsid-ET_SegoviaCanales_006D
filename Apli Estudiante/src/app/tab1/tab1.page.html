@@ -1,0 +1,73 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="tertiary">
+  
+    <ion-buttons slot="end">
+      <ion-button (click)="mostrarMenu()">
+        <ion-icon slot="end" name="menu-outline" color="dark" size="large"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      Inicio
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="dark" >
+  <ion-card>
+      <swiper-container
+      #swiper
+      (afterinit)="swiperReady()"
+      (slidechange)="swiperSlideChanged($event)"
+    >
+      <swiper-slide *ngFor="let item of segmentList" loop="true">
+          <ion-card>
+                <div class="image-container">
+                  <img [src]="item" style="width: auto; height: 200px; object-fit: cover; " />
+                </div>
+          </ion-card>
+      </swiper-slide>
+    </swiper-container> 
+    <ion-card-header>
+      <ion-card-subtitle>La manera más ecológica de llevar tu asistencia de clases</ion-card-subtitle>
+      <ion-card-title>Class CheckIn</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Queridos estudiantes, esta nueva aplicación que hemos implementado dentro del aula de clases es una divertida forma 
+      de registrar su asistencia a clases. 
+      Con esta aplicación podrás justificar los días que no has asistido a clases y también podremos gestionar tus licencias médicas de manera más eficiente.
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle></ion-card-subtitle>
+      <ion-card-title>Ir a justificar inasistencia <ion-button (click)="onClick()"  color="tertiary" shape="round" href="./tabs/tab3">
+        Click me
+      </ion-button></ion-card-title>
+      
+    </ion-card-header>
+    
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle></ion-card-subtitle>
+      <ion-card-title>Ir a generar codigo QR <ion-button (click)="nClick()"  color="tertiary" shape="round" href="./tabs/tab2">
+        Click me
+      </ion-button></ion-card-title>
+      
+    </ion-card-header>
+    
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle></ion-card-subtitle>
+      <ion-card-title>Ir a ver asignaturas inscritas <ion-button (click)="nClick()"  color="tertiary" shape="round" href="./asignatura">
+        Click me
+      </ion-button></ion-card-title>
+      
+    </ion-card-header>
+    
+  </ion-card>
+  <app-explore-container name="Tab 1 page"></app-explore-container>
+</ion-content>

@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="volver()">
+        Regresar
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Detalle Profesor</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card style="margin-top: 10%;">
+    <ion-card-header>
+      <ion-card-subtitle>Id Profesor: {{ profesor?.id }}</ion-card-subtitle>
+      <ion-card-title>Nombre Profesor: {{ profesor?.nombre }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>
+        Materia: {{ profesor?.materia }}<br />
+        Correo: {{ profesor?.correo }}
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+  <div style="text-align: center; margin-top: 30px;">
+    <ion-button (click)="actualizarDatos(this.profesor)" shape="round" color="warning">
+      Actualizar Datos
+    </ion-button>
+    <ion-button (click)="eliminarDatos()" shape="round" color="danger">
+      Eliminar Datos
+    </ion-button>
+  </div>
+</ion-content>

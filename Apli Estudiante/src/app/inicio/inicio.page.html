@@ -1,0 +1,80 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="tertiary">
+    <ion-title>Inicio de Sesión</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+ 
+ 
+  <form [formGroup]="loginForm">
+    <ion-item>
+      <ion-input type="text" placeholder="Ingrese usuario:" label="Usuario:" labelPlacement="floating"
+          formControlName="username">
+      </ion-input>
+    </ion-item>
+
+      <div id="alerta" *ngIf="loginForm.get('username')?.invalid && (loginForm.get('username')?.dirty || 
+                  loginForm.get('username')?.touched)">
+        <div id="alerta" *ngIf="loginForm.get('username')?.hasError('required')">
+          *Username es obligatorio
+        </div>
+        <div id="alerta" *ngIf="loginForm.get('username')?.hasError('minlength')">
+          *Username debe tener mínimo 6 caracteres
+        </div>
+      </div>
+
+    <ion-item>
+      <ion-input type="password" placeholder="Ingrese contraseña:" label="Contraseña:" labelPlacement="floating"
+          formControlName="password">
+      </ion-input>
+    </ion-item>
+
+    <div id="alerta" *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || 
+                loginForm.get('password')?.touched)">
+      <div id="alerta" *ngIf="loginForm.get('password')?.hasError('required')">
+        *Password es obligatoria
+      </div>
+      <div id="alerta" *ngIf="loginForm.get('password')?.hasError('minlength')">
+        *Password debe tener mínimo 8 caracteres
+      </div>
+    </div>
+
+
+    <div style="text-align: center; margin-top:30px">
+      <ion-button (click)="login()" [disabled]="!loginForm.valid" shape="round" color="primary">
+        Entrar
+      </ion-button> 
+    </div>
+    <div style="text-align: center;">
+      <ion-button (click)="Registrar()"  fill="clear" shape="round">
+        Registrarse
+      </ion-button>
+    </div>
+  </form>
+</ion-content>
+
+
+<ion-footer>
+  <ion-toolbar color="tertiary">
+    <ion-title id="letra">ClassCheckin 2024</ion-title>
+
+    <ion-buttons slot="end">
+
+      <ion-button fill="clear">
+        <ion-icon name="logo-instagram"></ion-icon>
+      </ion-button>
+
+      <ion-button fill="clear">
+        <ion-icon name="logo-facebook"></ion-icon>
+      </ion-button>
+
+      <ion-button fill="clear">
+        <ion-icon name="logo-twitter"></ion-icon>
+      </ion-button>
+
+    </ion-buttons>
+    
+
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,114 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="tertiary">
+    <ion-title>Crear Usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Crear Usuario</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <form [formGroup]="registroForm" class="form-container">
+    
+    <!-- Campo Nombre -->
+    <ion-item class="input-item">
+      <ion-input type="text" placeholder="Ingrese Nombre" formControlName="nombre" label="Nombre:" labelPlacement="floating"></ion-input>
+    </ion-item>
+
+    <div class="alert" *ngIf="registroForm.get('nombre')?.invalid && (registroForm.get('nombre')?.dirty || registroForm.get('nombre')?.touched)">
+      <div *ngIf="registroForm.get('nombre')?.hasError('required')">
+        *Nombre es obligatorio
+      </div>
+      <div *ngIf="registroForm.get('nombre')?.hasError('minlength')">
+        *El nombre debe tener mínimo 4 caracteres
+      </div>
+    </div>
+
+      <!-- Campo Apellido -->
+  <ion-item class="input-item">
+    <ion-input type="text" placeholder="Ingrese Apellido" formControlName="apellido" label="Apellido:" labelPlacement="floating"></ion-input>
+  </ion-item>
+  <div class="alert" *ngIf="registroForm.get('apellido')?.invalid && (registroForm.get('apellido')?.dirty || registroForm.get('apellido')?.touched)">
+    <div *ngIf="registroForm.get('apellido')?.hasError('required')">
+      *Apellido es obligatorio
+    </div>
+    <div *ngIf="registroForm.get('apellido')?.hasError('minlength')">
+      *El apellido debe tener mínimo 4 caracteres
+    </div>
+  </div>
+
+  <!-- Campo Email -->
+  <ion-item class="input-item">
+    <ion-input type="email" formControlName="correo" label="Email:" labelPlacement="floating"></ion-input>
+  </ion-item>
+
+  <div class="alert" *ngIf="registroForm.get('correo')?.invalid && (registroForm.get('correo')?.dirty || registroForm.get('correo')?.touched)">
+    <div *ngIf="registroForm.get('correo')?.hasError('required')">
+      *El correo es obligatorio
+    </div>
+    <div *ngIf="registroForm.get('correo')?.hasError('correo')">
+      *Formato no válido
+    </div>
+  </div>
+
+  <!-- Campo Materia -->
+  <ion-item class="input-item">
+    <ion-input type="text" placeholder="Ingrese Materia" formControlName="materia" label="Materia:" labelPlacement="floating"></ion-input>
+  </ion-item>
+  <div class="alert" *ngIf="registroForm.get('materia')?.invalid && (registroForm.get('materia')?.dirty || registroForm.get('materia')?.touched)">
+    <div *ngIf="registroForm.get('materia')?.hasError('required')">
+      *Materia es obligatorio
+    </div>
+    <div *ngIf="registroForm.get('materia')?.hasError('minlength')">
+      *La materia debe tener mínimo 4 caracteres
+    </div>
+  </div>
+
+    <!-- Campo Contraseña -->
+    <ion-item class="input-item">
+      <ion-input [type]="passwordVisible ? 'text' : 'password'" formControlName="contraseña" label="Contraseña:" labelPlacement="floating"></ion-input>
+      <ion-buttons slot="end">
+        <ion-button fill="clear" (click)="togglePasswordVisibility()">
+          <ion-icon [name]="passwordVisible ? 'eye-off' : 'eye'"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    
+
+    <div class="alert" *ngIf="registroForm.get('contraseña')?.invalid && (registroForm.get('contraseña')?.dirty || registroForm.get('contraseña')?.touched)">
+      <div *ngIf="registroForm.get('contraseña')?.hasError('required')">
+        *La contraseña es obligatoria
+      </div>
+      <div *ngIf="registroForm.get('contraseña')?.hasError('pattern')">
+        *La contraseña debe tener mínimo 8 caracteres, una letra y un número
+      </div>
+    </div>
+  </ion-item>
+
+    <div class="submit-btn-container">
+      <ion-button (click)="crearUsuario()" [disabled]="!registroForm.valid" shape="round" class="submit-btn">
+        Crear Usuario
+      </ion-button>
+    </div>
+
+  </form>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="tertiary">
+    <ion-title id="letra">ProProfes School</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear">
+        <ion-icon name="logo-instagram"></ion-icon>
+      </ion-button>
+      <ion-button fill="clear">
+        <ion-icon name="logo-facebook"></ion-icon>
+      </ion-button>
+      <ion-button fill="clear">
+        <ion-icon name="logo-twitter"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

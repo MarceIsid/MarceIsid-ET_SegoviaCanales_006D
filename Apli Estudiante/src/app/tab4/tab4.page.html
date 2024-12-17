@@ -1,0 +1,56 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="end">
+      <ion-button (click)="mostrarMenu()">
+        <ion-icon slot="end" name="menu-outline" color="dark" size="large"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="dark">
+  <div>
+    <ion-card style="display: flex; justify-content: center; align-items: center; border: none;">
+      <ion-avatar>
+        <img [src]="user?.image || './assets/images/default-avatar.png'" /> <!-- Imagen de perfil -->
+      </ion-avatar>
+      <input type="file" (change)="updateProfileImage($event)" accept="image/*" hidden #fileInput />
+      <ion-button (click)="fileInput.click()">Cambiar Imagen</ion-button>
+    </ion-card>
+  </div>
+
+  <ion-card color="light">
+    <ion-card-header>
+      <ion-card-title>Información de tu perfil</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label>Nombre de usuario</ion-label>
+        <ion-text>{{ user?.username }}</ion-text>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Correo Electrónico</ion-label>
+        <ion-text>{{ user?.email }}</ion-text>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Estado de la cuenta</ion-label>
+        <ion-text>{{ user?.isactive ? 'Activo' : 'Inactivo' }}</ion-text>
+      </ion-item>
+    </ion-card-content>
+
+  </ion-card>
+  
+  <ion-item href="/inicio">
+    <ion-label>Cerrar Sesión</ion-label>
+  </ion-item>
+  
+
+  <ion-footer>
+    <ion-button expand="full" (click)="updateProfileData()">Guardar Cambios</ion-button>
+  </ion-footer>
+
+</ion-content>

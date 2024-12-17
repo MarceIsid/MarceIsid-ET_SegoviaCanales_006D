@@ -1,0 +1,71 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="end">
+      <ion-button (click)="mostrarMenu()">
+        <ion-icon slot="end" name="menu-outline" color="dark" size="large"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    
+    <ion-title>
+     Justificacion inasistencia
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="dark">
+  <ion-card>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+            <ion-card  >
+            <ion-label style="margin: 10px;"  position="stacked"  required> Ingrese razón médica: </ion-label>
+            <ion-input style="margin: 10px;" type="text" placeholder="Diagnóstico..." ></ion-input>
+            </ion-card>
+
+
+            <ion-card >
+              <ion-label style="margin: 10px;" position="stacked"> Ingrese ramos a justificar: </ion-label>
+            <ion-input style="margin: 10px;" type="text" placeholder="Ciencias Naturales..." ></ion-input>
+              
+            </ion-card>
+            <ion-card>
+              <ion-card>
+                <ion-label style="margin: 10px;" position="stacked">Ingrese foto de la licencia:</ion-label>
+                <ion-button color="tertiary" (click)="takePhoto()">Seleccionar Imagen</ion-button>
+              </ion-card>
+            </ion-card>
+          </ion-col>
+
+        <ion-col size="auto">
+          <div style="width: 300px"><ion-item>
+            <ion-label position="floating"> Indique duracion de licencia:</ion-label>
+            <br>
+            <ion-datetime
+              displayFormat="DD/MM/YYYY"
+              [(ngModel)]="selectedDate"
+              (ionChange)="onDateChange($event)"
+              [min]="minDate"
+            ></ion-datetime>
+          </ion-item>
+          </div>
+        
+        </ion-col>
+        
+      </ion-row>
+      <ion-button color="tertiary" id="present-alert" expand="full" (click)="submitDates()">Enviar justificativo</ion-button>
+       
+    </ion-grid>
+    
+
+    
+
+  
+</ion-card>
+
+  <!-- Mostrar mensaje de error -->
+  <ion-item *ngIf="errorMessage">
+    <ion-label color="danger">{{ errorMessage }}</ion-label>
+  </ion-item>
+
+  
+</ion-content>
